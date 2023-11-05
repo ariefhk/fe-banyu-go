@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /* 
 @DOCS :
@@ -19,12 +19,12 @@
 */
 
 // core
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 // third party
-import clsx from "clsx";
+import clsx from 'clsx';
 
 // global state management
 // ---
@@ -38,13 +38,13 @@ import clsx from "clsx";
 // ---
 
 const links = [
-    { name: "Beranda", href: "/" },
-    { name: "Lainnya", href: "" },
-    { name: "Kontak", href: "/kontak" },
-    { name: "Petunjuk", href: "/petunjuk" },
+    { name: 'Beranda', href: '/' },
+    { name: 'Lainnya', href: '' },
+    { name: 'Kontak', href: '/kontak' },
+    { name: 'Petunjuk', href: '/petunjuk' },
     {
-        name: "Batal",
-        href: "/batal",
+        name: 'Batal',
+        href: '/batal',
     },
 ];
 
@@ -63,37 +63,37 @@ export default function Navbar() {
             {/* mobile navbar */}
 
             {/* md and higher navbar */}
-            <div className='hidden md:flex md:w-full md:max-w-screen-md md:items-center md:justify-between md:px-[12px] lg:max-w-screen-lg'>
+            <div className='hidden md:flex md:w-full md:max-w-screen-lg md:items-center md:justify-between md:px-[12px] lg:px-[0px]'>
                 <p className='md:text-[28px] md:font-bold'>Logo</p>
                 <div className='md:flex md:gap-[24px]  '>
                     {links.map((link) => {
-                        if (link.name === "Lainnya") {
+                        if (link.name === 'Lainnya') {
                             return (
                                 <div
                                     onClick={handleLainnya}
                                     key={link.name}
                                     className={clsx(
-                                        "md:relative md:cursor-pointer md:font-medium",
-                                        { " md:text-[#f1c40f]": pathname === "/lainnya/harga-tiket" },
-                                        { " md:text-[#f1c40f]": pathname === "/lainnya/faq" },
+                                        'md:relative md:cursor-pointer md:font-medium',
+                                        { ' md:text-[#f1c40f]': pathname === '/lainnya/harga-tiket' },
+                                        { ' md:text-[#f1c40f]': pathname === '/lainnya/faq' },
                                     )}>
                                     <p>{link.name}</p>
                                     {isLainnyaActive && (
                                         <div className='md:absolute md:top-[32px] md:flex md:w-[120px]  md:flex-col md:border md:bg-[#0a4773]  md:text-white '>
                                             <Link
-                                                href={"/lainnya/harga-tiket"}
+                                                href={'/lainnya/harga-tiket'}
                                                 className={clsx(
-                                                    "md:border-b  md:p-[8px]  md:hover:bg-[#f1c40f] md:hover:text-white",
+                                                    'md:border-b  md:p-[8px]  md:hover:bg-[#f1c40f] md:hover:text-white',
                                                     {
-                                                        " md:bg-[#f1c40f] md:text-white": pathname === "/lainnya/harga-tiket",
+                                                        ' md:bg-[#f1c40f] md:text-white': pathname === '/lainnya/harga-tiket',
                                                     },
                                                 )}>
                                                 <p>Harga Tiket</p>
                                             </Link>
                                             <Link
-                                                href={"/lainnya/faq"}
-                                                className={clsx("  md:p-[8px]  md:hover:bg-[#f1c40f] md:hover:text-white", {
-                                                    " md:bg-[#f1c40f] md:text-white": pathname === "/lainnya/faq",
+                                                href={'/lainnya/faq'}
+                                                className={clsx('  md:p-[8px]  md:hover:bg-[#f1c40f] md:hover:text-white', {
+                                                    ' md:bg-[#f1c40f] md:text-white': pathname === '/lainnya/faq',
                                                 })}>
                                                 <p>FAQ</p>
                                             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
                                 onClick={() => setIsLainnyaActive(false)}
                                 href={link.href}
                                 key={link.name}
-                                className={clsx("md:font-medium", { " md:text-[#f1c40f]": pathname === link.href })}>
+                                className={clsx('md:font-medium', { ' md:text-[#f1c40f]': pathname === link.href })}>
                                 <p>{link.name}</p>
                             </Link>
                         );
