@@ -48,7 +48,7 @@ const links = [
     },
 ];
 
-export default function Navbar() {
+export default function Navbar({ className }) {
     const pathname = usePathname();
     const [isLainnyaActive, setIsLainnyaActive] = useState(false);
 
@@ -57,7 +57,11 @@ export default function Navbar() {
     };
 
     return (
-        <section className='fixed top-0 flex h-[60px] w-full items-center justify-center bg-[#0a4773] py-3 text-white'>
+        <section
+            className={clsx(
+                'fixed top-0 flex h-[60px] w-full items-center justify-center bg-[#0a4773] py-3 text-white',
+                className,
+            )}>
             {/* mobile navbar */}
             <h1 className='text-[18px] font-bold md:hidden'>Logo | Navbar Mobile</h1>
             {/* mobile navbar */}
